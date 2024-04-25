@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestill kinobilletter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 0.8rem;
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+
+        .btn-warning:hover {
+            background-color: #ffca2c;
+            border-color: #ffca2c;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <!-- Overskrift -->
+    <h1 class="text-center mb-4">Bestilling av kinobilletter</h1>
+
+    <!-- BillettSkjema -->
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label for="film">Film</label>
+                    <select id="film" class="form-control">
+                        <option id="feilFilm" value="feilFilm">Velg film her</option>
+                        <option value="The Shawshank Redemption">The Shawshank Redemption</option>
+                        <option value="The Godfather">The Godfather</option>
+                        <option value="The Dark Knight">The Dark Knight</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="antall">Antall</label>
+                    <input type="text" id="antall" size="2" class="form-control" />
+                    <span id="ikkeTall" class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="fornavn">Fornavn</label>
+                    <input type="text" id="fornavn" class="form-control" />
+                    <span id="fornavnFeil" class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="etternavn">Etternavn</label>
+                    <input type="text" id="etternavn" class="form-control" />
+                    <span id="etternavnFeil" class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="telefon">Telefon</label>
+                    <input type="text" id="telefon" class="form-control" />
+                    <span id="telefonFeil" class="error-message"></span>
+                </div>
+                <div class="form-group">
+                    <label for="epost">Epost</label>
+                    <input type="text" id="epost" class="form-control" />
+                    <span id="epostFeil" class="error-message"></span>
+                </div>
+                <button type="button" class="btn btn-warning btn-block" onclick="kjopBillett()">Kjøp billett</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Vise billetter -->
+    <div class="text-center mt-4">
+        <h2>Alle billetter</h2>
+        <div id="billetter"></div>
+    </div>
+
+    <!-- Slette billetter -->
+    <div class="text-center mt-4">
+        <button type="button" class="btn btn-danger btn-block" onclick="slettAlleBilletter()">Slett alle billetter</button>
+    </div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="Kinobilletter.js"></script>
+</body>
+
+</html>
+
